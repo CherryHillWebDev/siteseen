@@ -61,7 +61,7 @@ async function handleForgotPassword({ email }) {
     successEl.hidden = true;
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://getsiteseen.com/site/auth.html'
+        redirectTo: 'https://getsiteseen.com/auth.html'
     });
 
     if (error) {

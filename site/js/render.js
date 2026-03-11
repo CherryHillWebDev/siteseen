@@ -210,8 +210,8 @@ export function renderHeader(user, supabase) {
         });
     } else {
         authLinks.innerHTML = `
-            <a href="/site/auth.html" class="header-link">Sign In</a>
-            <a href="/site/auth.html#signup" class="header-link cta-btn btn-red">Sign Up</a>
+            <a href="/auth.html" class="header-link">Sign In</a>
+            <a href="/auth.html#signup" class="header-link cta-btn btn-red">Sign Up</a>
         `;
     }
 }
