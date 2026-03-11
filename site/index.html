@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/site/css/main.css">
+    <link rel="stylesheet" href="/site/css/states.css">
+    <link rel="icon" type="image/x-icon" href="/site/img/SiteSeen-logo.png">
+    <title>SiteSeen</title>
+</head>
+<body>
+    <div id="page-loader">
+        <div class="loader"></div>
+    </div>
+    <header>
+        <div class="header">
+            <div class="header-left">
+                <div class="img-wrapper contain logo">
+                    <a href="/site/index.html"><img src="/site/img/siteseen-logo.webp" alt="SiteSeen Logo"></a>
+                </div>
+            </div>
+            <nav>
+                <div class="header-right" id="header-right">
+                    <a href="/site/index.html" class="header-link">Home</a>
+                    <a href="/site/index.html#about" class="header-link">About</a>
+                    <div id="header-auth-links"></div>
+                </div>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <div id="state-1-search">
+            <section>
+                <div class="content-container landing-container">
+                    <h1 class="heading hero-heading centered auto-margin">The top spot on Google gets 30% of all leads</h1>
+                    <p class="med-scale blue-font centered mt-md landing-p auto-margin">Your online presence is the most important asset you have as a business owner. Find out what’s holding your business back for free.</p>
+                    
+                    <div class="form-holder">
+                        <p class="lg-font form-text centered">Just enter your business name and find out how to get more leads in 30 seconds</p>
+                        <form id="business-search-form">
+                            <input id="business-name" name="business-name" type="text" placeholder="Business Name" required>
+                            <input id="business-location" name="business-location" type="text" placeholder="Location" required>
+                            <select id="trade-type" name="trade-type" required>
+                                    <option selected disabled value="">Select One</option>
+                                    <option value="carpenter">Carpenter</option>
+                                    <option value="concrete">Concrete</option>
+                                    <option value="electrician">Electrician</option>
+                                    <option value="flooring">Flooring</option>
+                                    <option value="contractor">General Contractor</option>
+                                    <option value="gutters">Gutters</option>
+                                    <option value="handyman">Handyman</option>
+                                    <option value="hvac">HVAC</option>
+                                    <option value="landscaper">Landscaper</option>
+                                    <option value="masonry">Masonry</option>
+                                    <option value="painter">Painter</option>
+                                    <option value="plumber">Plumber</option>
+                                    <option value="roofer">Roofer</option>
+                                    <option value="windows">Windows</option>
+                            </select>
+                            <button type="submit" class="state-1-submit-btn cta-btn btn-red">Analyze Your Business</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/carpenter.webp" alt="" aria-hidden="true"><p>Carpentry</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/concrete.webp" alt="" aria-hidden="true"><p>Concrete</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/electrical.webp" alt="" aria-hidden="true"><p>Electrical</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/flooring.webp" alt="" aria-hidden="true"><p>Flooring</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/gen-contracting.webp" alt="" aria-hidden="true"><p>General Contracting</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/gutters.webp" alt="" aria-hidden="true"><p>Gutters</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/carpenter.webp" alt="" aria-hidden="true"><p>Handyman</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/hvac.webp" alt="" aria-hidden="true"><p>HVAC</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/landscaper.webp" alt="" aria-hidden="true"><p>Landscaping</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/masonry.webp" alt="" aria-hidden="true"><p>Masonry</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/painter.webp" alt="" aria-hidden="true"><p>Painting</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/plumber.webp" alt="" aria-hidden="true"><p>Plumbing</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/roofer.webp" alt="" aria-hidden="true"><p>Roofing</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/windows.webp" alt="" aria-hidden="true"><p>Windows</p></div>
+
+
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/carpenter.webp" alt="" aria-hidden="true"><p>Carpentry</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/concrete.webp" alt="" aria-hidden="true"><p>Concrete</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/electrical.webp" alt="" aria-hidden="true"><p>Electrical</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/flooring.webp" alt="" aria-hidden="true"><p>Flooring</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/gen-contracting.webp" alt="" aria-hidden="true"><p>General Contracting</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/gutters.webp" alt="" aria-hidden="true"><p>Gutters</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/carpenter.webp" alt="" aria-hidden="true"><p>Handyman</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/hvac.webp" alt="" aria-hidden="true"><p>HVAC</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/landscaper.webp" alt="" aria-hidden="true"><p>Landscaping</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/masonry.webp" alt="" aria-hidden="true"><p>Masonry</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/painter.webp" alt="" aria-hidden="true"><p>Painting</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/plumber.webp" alt="" aria-hidden="true"><p>Plumbing</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/roofer.webp" alt="" aria-hidden="true"><p>Roofing</p></div>
+                    <div class="carousel-item img-wrapper"><img src="/site/img/state-1/carousel/windows.webp" alt="" aria-hidden="true"><p>Windows</p></div>
+                </div>
+            </div>
+        </div>
+        <div id="state-2-confirm">
+            <section>
+                <h2 class="heading heading-medium centered auto-margin">Do you see your business here?</h2>
+                <div class="content-container">
+                    <p class="p-el-select centered med-scale bold auto-margin blue-font">Please select one</p>
+                    <div class="flex search-results-container mt-sm">
+                        <div class="search-result-card" data-index="" data-place-id="">
+                            <p class="searched-business-name">Business Name</p>
+                            <p class="searched-business-address">Business Address</p>
+                        </div>
+
+                        <div class="search-result-card" data-index="" data-place-id="">
+                            <p class="searched-business-name">Business Name</p>
+                            <p class="searched-business-address">Business Address</p>
+                        </div>
+
+                        <div class="search-result-card" data-index="" data-place-id="">
+                            <p class="searched-business-name">Business Name</p>
+                            <p class="searched-business-address">Business Address</p>
+                        </div>
+
+                        <div class="search-result-card" data-index="" data-place-id="">
+                            <p class="searched-business-name">Business Name</p>
+                            <p class="searched-business-address">Business Address</p>
+                        </div>
+
+                        <div class="search-result-card" data-index="" data-place-id="">
+                            <p class="searched-business-name">Business Name</p>
+                            <p class="searched-business-address">Business Address</p>
+                        </div>
+                    </div>
+                    <div class="confirm-btn-holder">
+                    <button type="button" class="state-2-confirm-btn cta-btn btn-red auto-margin mt-lg">Confirm</button>
+                    <button type="button" class="state-2-retry-btn auto-margin mt-sm">Try again</button>    
+                    </div>
+                    
+                    <p class="confirm-disclaimer centered auto-margin lg-font mt-sm">By clicking ‘Confirm’, I acknowledge that I am the owner or a representative the selected business</p>
+                </div>
+            </section>
+        </div>
+        <div id="state-3-loading">
+            <div class="content-container loading-holder">
+                <div class="loader"></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                <p class="loading-text heading centered">Getting things ready...</p>
+            </div>
+        </div>
+        <div id="state-4-guest">
+            <section>
+                <div class="content-container cc-large">
+                    <h2 class="heading centered auto-margin dashboard-title">Smith Roofing's Results</h2>
+                    <div class="dashboard-top grid">
+                        <div class="dashboard-left-panel">
+                            <p class="heading heading-small extra-bold centered mb-md search-query-display" >Results for "Roofer near Camden County"</p>
+                            <table class="competitor-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-rank">Rank</th>
+                                        <th class="col-name">Business</th>
+                                        <th class="col-reviews">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="competitor-table-body">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="dashboard-right-panel">
+                            <p class="heading heading-small extra-bold centered">Potential Leads Analysis</p>
+                            <div class="dashboard-top-right-holder flex">
+                                <div class="dash-top">
+                                    <div class="dash-analysis-holder">
+                                        <p class="heading heading-small dash-business-health-score">Business Health Score: </p>
+                                        <p>The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p class="heading heading-small dash-crit-issues" >Issues Found: </p>
+                                        <span class="flex"><p class="high-prio two-issues"><span class="high-prio-issue-count"></span>High Priority </p><p class="med-prio two-issues"><span class="medium-prio-issue-count">2 </span> Medium Priority</p></span>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p>Businesses Ranked #1-3 in <span class="dash-right-location"></span> receive an estimated 73% of all local search clicks.</p>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p>Ranked <span class="lead-capture-rank"></span>, you're capturing roughly <span class="lead-capture-pct"></span> of available search traffic.</p>
+                                    </div>    
+                                </div>
+                                <div>
+                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed calls per month: <span class="missed-calls"></span></p>
+                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed revenue per month: <span class="missed-rev"></span></p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auto-margin mt-lg">
+                        <p class="centered heading-small mb-md extra-bold">
+                            Create a free account or log-in to see your fully detailed results
+                        </p>
+                        <a href="/site/auth.html#signup" class="cta-btn btn-red auto-margin">See My Results Now</a>
+                    </div>
+                    <div class="dash-result-breakdown mt-lg">
+                        <h2 class="heading-small font-blue extra-bold blue-font">Business Health Details:</h2>
+                        <div class="dash-health-grid-wrapper">
+                            <div class="dash-health-grid grid">
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Google Business Profile Score</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-gbp-score">--</p>
+                                    <a href="#gbp-score">Click to see details</a>
+                                </div>
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Website Score</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-website-score">--</p>
+                                    <a href="#website-score">Click to see details</a>
+                                </div>
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Mobile Friendliness</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-mobile-score">--</p>
+                                    <a href="#mobile-scores">Click to see details</a>
+                                </div>
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Number of Photos</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-photo-count">--</p>
+                                    <a href="#gbp-pictures">Click to see details</a>
+                                </div>
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Total Reviews</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-review-count">--</p>
+                                    <a href="#reviews">Click to see details</a>
+                                </div>
+                                <div class="health-item">
+                                    <p class="extra-bold centered">Recent Reviews Score</p>
+                                    <p class="extra-bold heading-medium blue-font centered health-recency-score">--</p>
+                                    <a href="#recent-reviews">Click to see details</a>
+                                </div>
+                            </div>
+                            <div class="health-grid-overlay">
+                                <div class="health-grid-overlay-inner">
+                                    <p class="extra-bold blue-font centered">Create a free account to see details</p>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="state-5-dashboard">
+            <section>
+                <div class="content-container cc-large">
+                    <h2 class="heading centered auto-margin dashboard-title">Smith Roofing's Results</h2>
+                    <div class="dashboard-top grid">
+                        <div class="dashboard-left-panel">
+                            <p class="heading heading-small extra-bold centered mb-md search-query-display" >Results for "Roofer near Camden County"</p>
+                            <table class="competitor-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-rank">Rank</th>
+                                        <th class="col-name">Business</th>
+                                        <th class="col-reviews">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="competitor-table-body">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="dashboard-right-panel">
+                            <p class="heading heading-small extra-bold centered">Potential Leads Analysis</p>
+                            <div class="dashboard-top-right-holder flex">
+                                <div class="dash-top">
+                                    <div class="dash-analysis-holder">
+                                        <p class="heading heading-small dash-business-health-score">Business Health Score: </p>
+                                        <p>The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p class="heading heading-small dash-crit-issues" >Issues Found: </p>
+                                        <span class="flex"><p class="high-prio two-issues"><span class="high-prio-issue-count"></span>High Priority </p><p class="med-prio two-issues"><span class="medium-prio-issue-count">2 </span> Medium Priority</p></span>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p>Businesses Ranked #1-3 in <span class="dash-right-location"></span> receive an estimated 73% of all local search clicks.</p>
+                                    </div>
+                                    <div class="dash-analysis-holder">
+                                        <p>Ranked <span class="lead-capture-rank"></span>, you're capturing roughly <span class="lead-capture-pct"></span> of available search traffic.</p>
+                                    </div>    
+                                </div>
+                                <div>
+                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed calls per month: <span class="missed-calls"></span></p>
+                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed revenue per month: <span class="missed-rev"></span></p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dash-result-breakdown mt-xl">
+                        <h2 class="heading-small font-blue extra-bold blue-font">Business Health Details:</h2>
+                        <div class="dash-health-grid grid">
+                            <div class="health-item">
+                                <p class="extra-bold centered">Google Business Profile Score</p>
+                                <p class="extra-bold heading-medium blue-font centered health-gbp-score">--</p>
+                                <a href="#gbp-score">Click to see details</a>
+                            </div>
+                            <div class="health-item">
+                                <p class="extra-bold centered">Website Score</p>
+                                <p class="extra-bold heading-medium blue-font centered health-website-score">--</p>
+                                <a href="#website-score">Click to see details</a>
+                            </div>
+                            <div class="health-item">
+                                <p class="extra-bold centered">Mobile Friendliness</p>
+                                <p class="extra-bold heading-medium blue-font centered health-mobile-score">--</p>
+                                <a href="#mobile-scores">Click to see details</a>
+                            </div>
+                            <div class="health-item">
+                                <p class="extra-bold centered">Number of Photos</p>
+                                <p class="extra-bold heading-medium blue-font centered health-photo-count">--</p>
+                                <a href="#gbp-pictures">Click to see details</a>
+                            </div>
+                            <div class="health-item">
+                                <p class="extra-bold centered">Total Reviews</p>
+                                <p class="extra-bold heading-medium blue-font centered health-review-count">--</p>
+                                <a href="#reviews">Click to see details</a>
+                            </div>
+                            <div class="health-item">
+                                <p class="extra-bold centered">Recent Reviews Score</p>
+                                <p class="extra-bold heading-medium blue-font centered health-recency-score">--</p>
+                                <a href="#recent-reviews">Click to see details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rescan-holder centered mt-md">
+                        <button type="button" class="cta-btn btn-red auto-margin" id="btn-rescan">Rescan My Business</button>
+                        <p class="lg-font centered mt-sm" id="rescan-note" hidden>Next scan available in X days</p>
+                        <p class="lg-font centered mt-sm" id="last-scanned">Last scanned March 1, 2025</p>
+                    </div>
+                </div>
+            </section>
+            <section class="issue-track-section mt-lg">
+                <div class="content-container issue-container">
+                    <h2 class="heading heading-medium white-font centered">Issue Breakdown</h2>
+                    <div class="issue-tracker">
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+            <div class="footer">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <div class="img-wrapper contain logo">
+                            <a href="/site/index.html"><img src="/site/img/siteseen-logo.webp" alt="SiteSeen Logo"></a>
+                        </div>
+                        <p class="lg-font mt-sm">Helping local tradesmen rank higher and win more jobs.</p>
+                    </div>
+                    <div class="footer-link-holder flex">
+                        <div class="footer-links">
+                            <p class="extra-bold mb-sm">Company</p>
+                            <a href="/site/index.html#about" class="footer-link">About</a>
+                            <a href="#" class="footer-link">Contact</a>
+                            <a href="#" class="footer-link">Privacy Policy</a>
+                            <a href="#" class="footer-link">Terms of Service</a>
+                        </div>
+                        <div class="footer-links">
+                            <p class="extra-bold mb-sm">Account</p>
+                            <a href="/site/auth.html" class="footer-link">Sign In</a>
+                            <a href="/site/auth.html#signup" class="footer-link">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="lg-font centered mt-md">©2026 SiteSeen. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    <script type="module" src="/site/js/app.js"></script>
+</body>
+</html>

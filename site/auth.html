@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/site/css/main.css">
+    <link rel="stylesheet" href="/site/css/states.css">
+    <title>SiteSeen — Sign In</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header-left">
+                <div class="img-wrapper contain logo">
+                    <a href="/site/index.html"><img src="/site/img/siteseen-logo.webp" alt="SiteSeen Logo"></a>
+                </div>
+            </div>
+            <nav>
+                <div class="header-right" id="header-right">
+                    <a href="/site/index.html" class="header-link">Home</a>
+                    <a href="/site/index.html#about" class="header-link">About</a>
+                    <div id="header-auth-links"></div>
+                </div>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="content-container">
+
+                <!-- Sign In -->
+                <div id="auth-signin" class="auth-box">
+                    <h2 class="heading heading-medium centered">Sign In</h2>
+                    <p class="centered lg-font mt-sm mb-lg">Welcome back — view your full results below.</p>
+                    <div class="auth-form form-holder">
+                        <input id="signin-email" type="email" placeholder="Email address" autocomplete="email">
+                        <input id="signin-password" type="password" placeholder="Password" autocomplete="current-password">
+                        <button id="btn-signin" class="cta-btn btn-red auto-margin">Sign In</button>
+                        <p id="signin-error" class="auth-error centered lg-font" hidden></p>
+                        <p class="centered lg-font mt-sm">
+                            <a href="#" id="link-forgot">Forgot your password?</a>
+                        </p>
+                        <p class="centered lg-font mt-sm">
+                            Don't have an account? <a href="#" id="link-to-signup">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sign Up -->
+                <div id="auth-signup" class="auth-box" hidden>
+                    <h2 class="heading heading-medium centered">Create Your Account</h2>
+                    <p class="centered lg-font mt-sm mb-lg">Save your results and track your progress over time.</p>
+                    <div class="auth-form form-holder">
+                        <input id="signup-email" type="email" placeholder="Email address" autocomplete="email">
+                        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
+                        <input id="signup-confirm" type="password" placeholder="Confirm password" autocomplete="new-password">
+                        <button id="btn-signup" class="cta-btn btn-red auto-margin">Create Account</button>
+                        <p id="signup-error" class="auth-error centered lg-font" hidden></p>
+                        <p class="centered lg-font mt-sm">
+                            Already have an account? <a href="#" id="link-to-signin">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Forgot Password -->
+                <div id="auth-forgot" class="auth-box" hidden>
+                    <h2 class="heading heading-medium centered">Reset Password</h2>
+                    <p class="centered lg-font mt-sm mb-lg">Enter your email and we'll send you a reset link.</p>
+                    <div class="auth-form form-holder">
+                        <input id="forgot-email" type="email" placeholder="Email address" autocomplete="email">
+                        <button id="btn-forgot" class="cta-btn btn-red auto-margin">Send Reset Link</button>
+                        <p id="forgot-error" class="auth-error centered lg-font" hidden></p>
+                        <p id="forgot-success" class="auth-success centered lg-font" hidden>Check your email for a reset link.</p>
+                        <p class="centered lg-font mt-sm">
+                            <a href="#" id="link-back-signin">Back to sign in</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="img-wrapper contain logo">
+                        <a href="/site/index.html"><img src="/site/img/siteseen-logo.webp" alt="SiteSeen Logo"></a>
+                    </div>
+                    <p class="lg-font mt-sm">Helping local tradesmen rank higher and win more jobs.</p>
+                </div>
+                <div class="footer-link-holder flex">
+                    <div class="footer-links">
+                        <p class="extra-bold mb-sm">Company</p>
+                        <a href="/site/index.html#about" class="footer-link">About</a>
+                        <a href="#" class="footer-link">Contact</a>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                    <div class="footer-links">
+                        <p class="extra-bold mb-sm">Account</p>
+                        <a href="/site/auth.html" class="footer-link">Sign In</a>
+                        <a href="/site/auth.html" class="footer-link">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="lg-font centered">©2026 SiteSeen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="/site/js/auth.js"></script>
+    <script type="module" src="/site/js/app.js"></script>
+</body>
+</html>

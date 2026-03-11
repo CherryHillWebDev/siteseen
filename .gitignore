@@ -1,0 +1,11 @@
+# Worker
+worker/.dev.vars
+worker/node_modules/
+
+# Site
+site/.env.local
+
+# General
+*.env
+.DS_Store
+Thumbs.db
