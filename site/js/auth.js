@@ -35,7 +35,7 @@ async function handleSignUp({ email, password, confirm }) {
             });
             localStorage.removeItem('session_token');
         }
-        window.location.href = '/site/index.html';
+        window.location.href = '/index.html';
     }
 }
 
@@ -51,7 +51,7 @@ async function handleSignIn({ email, password }) {
         return;
     }
 
-    window.location.href = '/site/index.html';
+    window.location.href = '/index.html';
 }
 
 async function handleForgotPassword({ email }) {
