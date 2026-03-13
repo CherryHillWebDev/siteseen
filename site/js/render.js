@@ -52,7 +52,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         newRow.innerHTML = `
             <td class="comp-lg">#${entry.rank}</td>
             <td>${entry.business_name}</td>
-            <td class="comp-lg"><span class="star">★</span>${auditData.average_rating ?? '--'}</td>
+            <td class="comp-lg"><span class="star">★</span>${entry.average_rating ?? '--'}</td>
         `;
         tableBody.appendChild(newRow);
     });
@@ -63,7 +63,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         notFoundRow.innerHTML = `
             <td class="comp-lg">--</td>
             <td>${businessName}</td>
-            <td class="comp-lg">${entry.average_rating ?? '--'}</td>
+            <td class="comp-lg">${auditData.average_rating ?? '--'}</td>
         `;
         tableBody.appendChild(notFoundRow);
     }
