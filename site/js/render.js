@@ -63,7 +63,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         notFoundRow.innerHTML = `
             <td class="comp-lg">--</td>
             <td>${businessName}</td>
-            <td class="comp-lg">${userRanking ?? '--'}</td>
+            <td class="comp-lg"><span class="star">★</span>${userRanking ?? '--'}</td>
         `;
         tableBody.appendChild(notFoundRow);
     }
