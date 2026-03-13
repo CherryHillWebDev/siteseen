@@ -26,7 +26,7 @@ export function renderState5(dashboardData) {
     renderDashboard(state5, dashboardData);
     renderHealthGrid(dashboardData);
     renderIssueTracker(dashboardData.issues);
-    renderRescanButton(dashboardData.created_at);
+    renderRescanButton(dashboardData.updated_at ?? dashboardData.created_at);
 }
 
 function renderDashboard(container, auditData) {
@@ -63,7 +63,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         notFoundRow.innerHTML = `
             <td class="comp-lg">--</td>
             <td>${businessName}</td>
-            <td class="comp-lg">Not ranked</td>
+            <td class="comp-lg">${entry.average_rating}</td>
         `;
         tableBody.appendChild(notFoundRow);
     }
