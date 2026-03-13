@@ -39,7 +39,7 @@ function renderTitle(container, placeName) {
     container.querySelector('.dashboard-title').textContent = `${placeName}'s Results`;
 }
 
-function renderCompetitorTable(container, competitorData, businessId, userAppeared, businessName) {
+function renderCompetitorTable(container, competitorData, businessId, userAppeared, businessName, userRanking) {
     const tableBody = container.querySelector('.competitor-table-body');
     tableBody.innerHTML = '';
 
@@ -63,7 +63,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         notFoundRow.innerHTML = `
             <td class="comp-lg">--</td>
             <td>${businessName}</td>
-            <td class="comp-lg">${auditData.average_rating ?? '--'}</td>
+            <td class="comp-lg">${userRanking ?? '--'}</td>
         `;
         tableBody.appendChild(notFoundRow);
     }
