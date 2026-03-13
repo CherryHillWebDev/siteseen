@@ -31,7 +31,7 @@ export function renderState5(dashboardData) {
 
 function renderDashboard(container, auditData) {
     renderTitle(container, auditData.business_name);
-    renderCompetitorTable(container, auditData.competitor_list, auditData.place_id, auditData.user_appeared, auditData.business_name);
+    renderCompetitorTable(container, auditData.competitor_list, auditData.place_id, auditData.user_appeared, auditData.business_name, auditData.average_rating);
     renderTopDashText(container, auditData);
 }
 
@@ -52,7 +52,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         newRow.innerHTML = `
             <td class="comp-lg">#${entry.rank}</td>
             <td>${entry.business_name}</td>
-            <td class="comp-lg"><span class="star">★</span>${entry.average_rating ?? '--'}</td>
+            <td class="comp-lg"><span class="star">★</span>${auditData.average_rating ?? '--'}</td>
         `;
         tableBody.appendChild(newRow);
     });
@@ -63,7 +63,7 @@ function renderCompetitorTable(container, competitorData, businessId, userAppear
         notFoundRow.innerHTML = `
             <td class="comp-lg">--</td>
             <td>${businessName}</td>
-            <td class="comp-lg">${entry.average_rating}</td>
+            <td class="comp-lg">${entry.average_rating ?? '--'}</td>
         `;
         tableBody.appendChild(notFoundRow);
     }
