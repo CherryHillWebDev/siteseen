@@ -361,7 +361,7 @@
 .bar-high   { background: #E24B4A; }
 .bar-medium { background: #9F87D4; }
 
-css.chart-tooltip {
+.chart-tooltip {
     position: absolute;
     bottom: calc(100% + 8px);
     left: 50%;
