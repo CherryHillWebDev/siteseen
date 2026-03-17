@@ -260,7 +260,7 @@ function renderIssueTracker(issues) {
             <div class="issue-dropdown-wrapper">
                 <div class="issue-dropdown">
                     <div class="issue-dropdown-inner">
-                        <p class="heading heading-small white-font centered">Suggested Steps</p>
+                        <p class="heading heading-small dg-font centered">Suggested Steps</p>
                         <ul class="issue-ol">
                             ${issue.fix.map(step => `<li>${step}</li>`).join('')}
                         </ul>

@@ -323,6 +323,11 @@
     min-height: 350px;
 }
 
+.health-gauge {
+    width: 70%;
+    margin: 0.5rem auto;
+}
+
 .issues-chart {
     display: flex;
     align-items: flex-end;
@@ -520,7 +525,7 @@
     justify-self: flex-end;
 }
 
-#missed-holder-select {
+.missed-holder-select {
     padding: 0.5rem;
     font-size: var(--btn-font-size);
     outline: solid 1px;
@@ -614,6 +619,10 @@
     background: #E90000;
 }
 
+.issue-color.issue-yellow {
+    background: #F5A623;
+}
+
 .issue-description {
     padding-bottom: 0.5rem;
 }
@@ -696,5 +705,18 @@
 
     .dashboard-top {
         grid-template-columns: 1fr;
+    }
+
+    .issues-chart {
+        height: 200px;
+    }
+
+    .dashboard-bottom-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-health-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill);
     }
 }
