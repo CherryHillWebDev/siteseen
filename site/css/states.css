@@ -725,13 +725,34 @@
         grid-template-columns: 1fr;
     }
 
-    .dashboard-bottom-panel > .dash-analysis-holder:first-child { padding-left: 0; padding-right: 0 }
+    .miss {
+        gap: 1rem;
+    }
 
-    .col-rank    { width: auto; }
+    .miss-call-number, .miss-rev-number {
+        margin-bottom: 1rem;
+    }
+
+    .table-holder {
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .competitor-table thead th {
+        background: #f1f0f0;
+        color: #636363;
+        font-weight: 500;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 0.75rem;
+        letter-spacing: -0.03em;
+    }
+
+    .col-rank    { width: 24px; }
     .col-name    { width: auto; }
-    .col-leads   { width: auto; }
-    .col-reviews { width: auto; }
-    .col-ratings { width: auto; }
+    .col-leads   { width: 24px; }
+    .col-reviews { width: 24px; }
+    .col-ratings { width: 36px; }
 
     .competitor-table td {
         padding: 6px 7px;
