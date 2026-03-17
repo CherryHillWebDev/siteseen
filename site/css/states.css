@@ -324,7 +324,7 @@
 }
 
 .health-gauge {
-    width: 70%;
+    width: 50%;
     margin: 0.5rem auto;
 }
 
@@ -332,6 +332,7 @@
     display: flex;
     align-items: flex-end;
     gap: 24px;
+    margin-bottom: 24px;
     padding: 16px 0 0 0;
     height: 150px;
     justify-self: center !important;
@@ -347,7 +348,7 @@
 
 .chart-bar {
     width: 120px;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px;
     position: relative;
     cursor: pointer;
     transition: filter 0.15s ease;
@@ -360,12 +361,11 @@
 .bar-high   { background: #E24B4A; }
 .bar-medium { background: #9F87D4; }
 
-.chart-tooltip {
-    display: none;
+css.chart-tooltip {
     position: absolute;
     bottom: calc(100% + 8px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(6px);
     background: #1f2937;
     color: #fff;
     font-size: 12px;
@@ -375,6 +375,9 @@
     border-radius: 4px;
     pointer-events: none;
     z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
 }
 
 .chart-tooltip::after {
@@ -388,7 +391,9 @@
 }
 
 .chart-bar:hover .chart-tooltip {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .chart-label {

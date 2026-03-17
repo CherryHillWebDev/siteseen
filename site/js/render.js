@@ -88,8 +88,8 @@ function renderGauge(container, score, size) {
         <svg width="100%" height="auto" viewBox="0 0 ${size} ${Math.round(size * 0.72)}" xmlns="http://www.w3.org/2000/svg" style="display:block;">
             <path d="${buildArcPath(cx, cy, R, startAngle, startAngle + totalArc)}" fill="none" stroke="#e5e7eb" stroke-width="${sw}" stroke-linecap="round"/>
             <path id="${uid}" d="${buildArcPath(cx, cy, R, startAngle, startAngle + 0.001)}" fill="none" stroke="${track}" stroke-width="${sw}" stroke-linecap="round"/>
-            <text x="${cx}" y="${cy + R * 0.18}" text-anchor="middle" font-size="${Math.round(size * 0.18)}" font-weight="500" fill="${track}" font-family="system-ui,sans-serif">${Math.round(clamped)}</text>
-            <text x="${cx}" y="${cy + R * 0.60}" text-anchor="middle" font-size="${Math.round(size * 0.09)}" fill="#6b7280" font-family="system-ui,sans-serif">${label}</text>
+            <text x="${cx}" y="${cy + R * 0.00}" text-anchor="middle" font-size="${Math.round(size * 0.18)}" font-weight="500" fill="${track}" font-family="system-ui,sans-serif">${Math.round(clamped)}</text>
+            <text x="${cx}" y="${cy + R * 0.25}" text-anchor="middle" font-size="${Math.round(size * 0.09)}" fill="#6b7280" font-family="system-ui,sans-serif">${label}</text>
         </svg>`;
 
     const pathEl = container.querySelector('#' + uid);
@@ -240,7 +240,7 @@ function renderIssueTracker(issues) {
 
     tracker.innerHTML = issues.map(issue => `
         <div class="issue-card">
-            <p class="heading heading-small bold blue-font centered mb-sm">${issue.title}</p>
+            <p class="heading heading-small bold dg-font centered mb-sm">${issue.title}</p>
             <div class="issue-card-upper grid">
                 <div class="issue-type">
                     <div class="issue-color ${issue.priority === 1 ? 'issue-red' : 'issue-yellow'}"></div>
