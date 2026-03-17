@@ -258,6 +258,7 @@ async function reRunAudit() {
         const dashboardData = await fetchDashboard();
         renderState5(dashboardData.dashboard);
         setState(STATES[4]);
+        document.getElementById('btn-rescan').disabled = false
     })
 }
 
@@ -310,4 +311,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.state-2-confirm-btn').addEventListener('click', () => handleConfirm(_selectedBusiness) )
 
     document.getElementById('btn-rescan').addEventListener('click', () => reRunAudit());
+
 })

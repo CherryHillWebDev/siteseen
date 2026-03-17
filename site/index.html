@@ -154,47 +154,73 @@
         <div id="state-4-guest">
             <section>
                 <div class="content-container cc-large">
-                    <h2 class="heading centered auto-margin dashboard-title">Smith Roofing's Results</h2>
-                    <div class="dashboard-top grid">
-                        <div class="dashboard-left-panel">
-                            <p class="heading heading-small extra-bold centered mb-md search-query-display" >Results for "Roofer near Camden County"</p>
-                            <table class="competitor-table">
-                                <thead>
-                                    <tr>
-                                        <th class="col-rank">Rank</th>
-                                        <th class="col-name">Business</th>
-                                        <th class="col-reviews">Rating</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="competitor-table-body">
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="dashboard-right-panel">
-                            <p class="heading heading-small extra-bold centered">Potential Leads Analysis</p>
-                            <div class="dashboard-top-right-holder flex">
-                                <div class="dash-top">
-                                    <div class="dash-analysis-holder">
-                                        <p class="heading heading-small dash-business-health-score">Business Health Score: </p>
-                                        <p>The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
+                    <h2 class="heading centered auto-margin dashboard-title"></h2>
+                    <div class="dashboard">
+                        <div class="dashboard-top grid">
+                            <div class="dashboard-left-panel">
+                                <div class="dash-analysis-holder">
+                                    <p class="heading heading-small dg-font extra-bold dash-business-health-score">Business Health Score</p>
+                                    <div class="health-gauge">
+                                        
                                     </div>
-                                    <div class="dash-analysis-holder">
-                                        <p class="heading heading-small dash-crit-issues" >Issues Found: </p>
-                                        <span class="flex"><p class="high-prio two-issues"><span class="high-prio-issue-count"></span>High Priority </p><p class="med-prio two-issues"><span class="medium-prio-issue-count">2 </span> Medium Priority</p></span>
-                                    </div>
-                                    <div class="dash-analysis-holder">
-                                        <p>Businesses Ranked #1-3 in <span class="dash-right-location"></span> receive an estimated 73% of all local search clicks.</p>
-                                    </div>
-                                    <div class="dash-analysis-holder">
-                                        <p>Ranked <span class="lead-capture-rank"></span>, you're capturing roughly <span class="lead-capture-pct"></span> of available search traffic.</p>
-                                    </div>    
+                                    <p class="lg-font">The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
                                 </div>
-                                <div>
-                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed calls per month: <span class="missed-calls"></span></p>
-                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed revenue per month: <span class="missed-rev"></span></p>
-                                </div>    
+                            </div>
+
+                            <div class="dashboard-right-panel">
+                                <div class="dash-analysis-holder">
+                                    <p class="heading heading-small extra-bold dg-font dash-crit-issues">Issues Found</p>
+                                    <div class="issues-chart">
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar bar-high" data-count="3" style="height: 150px;">
+                                                <div class="chart-tooltip"></div>
+                                            </div>
+                                            <p class="chart-label">High Priority</p>
+                                        </div>
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar bar-medium" data-count="2" style="height: 100px;">
+                                                <div class="chart-tooltip"></div>
+                                            </div>
+                                            <p class="chart-label">Medium Priority</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-bottom-panel grid">
+                            <div class="dash-analysis-holder">
+                                <p class="heading heading-small extra-bold dg-font mb-md search-query-display"></p>
+                                <table class="competitor-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-rank">Rank</th>
+                                            <th class="col-name">Business</th>
+                                            <th class="col-leads">Lead Capture</th>
+                                            <th class="col-reviews">Rating</th>
+                                            <th class="col-ratings">Reviews</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="competitor-table-body">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="dash-analysis-holder miss flex">
+                                <div class="missed-holder-heading flex">
+                                    <label for="missed-holder-select"><p class="heading heading-small extra-bold dg-font centered">Showing:</p></label>
+                                    <select class="missed-holder-select">
+                                        <option selected value="missed-holder-calls">Missed Calls</option>
+                                        <option value="missed-holder-rev">Missed Revenue</option>
+                                    </select>
+                                </div>
+                                <div class="missed-holder active missed-holder-calls">
+                                    <div><p class="heading heading-medium centered miss-call-number"></p></div>
+                                    <p class="lg-font">Ranked <span class="lead-capture-rank lg-font">9</span>, you're capturing roughly <span class="lead-capture-pct lg-font"></span> of available search traffic.</p>
+                                </div>
+                                <div class="missed-holder missed-holder-rev">
+                                    <div><p class="heading heading-medium centered miss-rev-number"></p></div>
+                                    <p class="lg-font">Businesses Ranked #1-3 in <span class="dash-right-location lg-font"></span> receive an estimated 73% of all local search clicks.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -254,47 +280,73 @@
         <div id="state-5-dashboard">
             <section>
                 <div class="content-container cc-large">
-                    <h2 class="heading centered auto-margin dashboard-title">Smith Roofing's Results</h2>
-                    <div class="dashboard-top grid">
-                        <div class="dashboard-left-panel">
-                            <p class="heading heading-small extra-bold centered mb-md search-query-display" >Results for "Roofer near Camden County"</p>
-                            <table class="competitor-table">
-                                <thead>
-                                    <tr>
-                                        <th class="col-rank">Rank</th>
-                                        <th class="col-name">Business</th>
-                                        <th class="col-reviews">Rating</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="competitor-table-body">
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="dashboard-right-panel">
-                            <p class="heading heading-small extra-bold centered">Potential Leads Analysis</p>
-                            <div class="dashboard-top-right-holder flex">
-                                <div class="dash-top">
-                                    <div class="dash-analysis-holder">
-                                        <p class="heading heading-small dash-business-health-score">Business Health Score: </p>
-                                        <p>The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
+                    <h2 class="heading centered auto-margin dashboard-title"></h2>
+                    <div class="dashboard">
+                        <div class="dashboard-top grid">
+                            <div class="dashboard-left-panel">
+                                <div class="dash-analysis-holder">
+                                    <p class="heading heading-small dg-font extra-bold dash-business-health-score">Business Health Score</p>
+                                    <div class="health-gauge">
+                                        
                                     </div>
-                                    <div class="dash-analysis-holder">
-                                        <p class="heading heading-small dash-crit-issues" >Issues Found: </p>
-                                        <span class="flex"><p class="high-prio two-issues"><span class="high-prio-issue-count"></span>High Priority </p><p class="med-prio two-issues"><span class="medium-prio-issue-count">2 </span> Medium Priority</p></span>
-                                    </div>
-                                    <div class="dash-analysis-holder">
-                                        <p>Businesses Ranked #1-3 in <span class="dash-right-location"></span> receive an estimated 73% of all local search clicks.</p>
-                                    </div>
-                                    <div class="dash-analysis-holder">
-                                        <p>Ranked <span class="lead-capture-rank"></span>, you're capturing roughly <span class="lead-capture-pct"></span> of available search traffic.</p>
-                                    </div>    
+                                    <p class="lg-font">The Business Health Score lets you know your ranking potential. The higher the score, the better you can rank.</p>
                                 </div>
-                                <div>
-                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed calls per month: <span class="missed-calls"></span></p>
-                                    <p class="heading heading-small mb-lg extra-bold">Estimated missed revenue per month: <span class="missed-rev"></span></p>
-                                </div>    
+                            </div>
+
+                            <div class="dashboard-right-panel">
+                                <div class="dash-analysis-holder">
+                                    <p class="heading heading-small extra-bold dg-font dash-crit-issues">Issues Found</p>
+                                    <div class="issues-chart">
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar bar-high" data-count="3" style="height: 150px;">
+                                                <div class="chart-tooltip"></div>
+                                            </div>
+                                            <p class="chart-label">High Priority</p>
+                                        </div>
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar bar-medium" data-count="2" style="height: 100px;">
+                                                <div class="chart-tooltip"></div>
+                                            </div>
+                                            <p class="chart-label">Medium Priority</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-bottom-panel grid">
+                            <div class="dash-analysis-holder">
+                                <p class="heading heading-small extra-bold dg-font mb-md search-query-display"></p>
+                                <table class="competitor-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-rank">Rank</th>
+                                            <th class="col-name">Business</th>
+                                            <th class="col-leads">Lead Capture</th>
+                                            <th class="col-reviews">Rating</th>
+                                            <th class="col-ratings">Reviews</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="competitor-table-body">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="dash-analysis-holder miss flex">
+                                <div class="missed-holder-heading flex">
+                                    <label for="missed-holder-select"><p class="heading heading-small extra-bold dg-font centered">Showing:</p></label>
+                                    <select class="missed-holder-select">
+                                        <option selected value="missed-holder-calls">Missed Calls</option>
+                                        <option value="missed-holder-rev">Missed Revenue</option>
+                                    </select>
+                                </div>
+                                <div class="missed-holder active missed-holder-calls">
+                                    <div><p class="heading heading-medium centered miss-call-number"></p></div>
+                                    <p class="lg-font">Ranked <span class="lead-capture-rank lg-font"></span>, you're capturing roughly <span class="lead-capture-pct lg-font"></span> of available search traffic.</p>
+                                </div>
+                                <div class="missed-holder missed-holder-rev">
+                                    <div><p class="heading heading-medium centered miss-rev-number">$4,500-$6,000</p></div>
+                                    <p class="lg-font">Businesses Ranked #1-3 in <span class="dash-right-location lg-font"></span> receive an estimated 73% of all local search clicks.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

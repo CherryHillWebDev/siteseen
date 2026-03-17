@@ -4,7 +4,9 @@
     --off-white: #FAFDFF;
     --light-gray: #F6F6F6;
     --font-color: #171E25;
+    --font-lg: #5c5c5c;
     --input-bg-color: #F3F3F3;
+    --border-std: solid 1px #d4d4d4;
     --theme-font: "Inter";
     --body-font: "Inter";
     --hero-head-size: clamp(4rem, 3.2958rem + 2.2535vw, 6rem);;
@@ -19,6 +21,7 @@
     margin: 0; 
     padding: 0;
     font-family: var(--body-font);
+    color: var(--font-color);
 }
 
 img {
@@ -79,7 +82,7 @@ img {
 }
 
 .heading-medium {
-    font-size: var(--med-head-size);
+    font-size: var(--med-head-size) !important;
     font-family: var(--theme-font);
     font-weight: 700;
 }
@@ -144,6 +147,10 @@ p {
 
 .dg-font {
     color: #2c2c2c;
+}
+
+.blk-font {
+    color: var(--font-color) !important;
 }
 
 .cta-btn {
