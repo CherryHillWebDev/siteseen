@@ -332,7 +332,7 @@
     display: flex;
     align-items: flex-end;
     gap: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 2.25rem;
     padding: 16px 0 0 0;
     height: 150px;
     justify-self: center !important;
@@ -471,7 +471,6 @@
     border-bottom: solid 2px #ebebeb !important;
 }
 
-
 .col-rank    { width: 100px; }
 .col-name    { width: auto; }
 .col-leads   { width: 120px; }
@@ -484,7 +483,7 @@
 }
 
 .comp-lg {
-    font-size: 20px !important;
+    font-size: 1rem !important;
     font-weight: 700;
     color: #303030;
     text-align: center;
@@ -708,20 +707,46 @@
         width: 80%;
     }
 
+    .dashboard {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
     .dashboard-top {
         grid-template-columns: 1fr;
     }
 
     .issues-chart {
         height: 200px;
+        margin-bottom: 1rem;
     }
 
     .dashboard-bottom-panel {
         grid-template-columns: 1fr;
     }
 
+    .dashboard-bottom-panel > .dash-analysis-holder:first-child { padding-left: 0; padding-right: 0 }
+
+    .col-rank    { width: auto; }
+    .col-name    { width: auto; }
+    .col-leads   { width: auto; }
+    .col-reviews { width: auto; }
+    .col-ratings { width: auto; }
+
+    .competitor-table td {
+        padding: 6px 7px;
+        font-size: 0.75rem;
+        color:#5c5c5c;
+    }
+
+    .comp-lg {
+        font-size: 0.75rem !important;
+    }
+
     .dash-health-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(auto-fill);
+        height: auto;
+        max-height: unset;
     }
 }
