@@ -216,13 +216,31 @@ function renderIssuesChart(container, auditData) {
 }
 
 // State 5 only functions
+function healthColor(value, thresholds) {
+    if (value === null || value === undefined) return '';
+    if (value >= thresholds.green) return '#3B6D11';
+    if (value >= thresholds.yellow) return '#BA7517';
+    return '#E24B4A';
+}
+
 function renderHealthGrid(auditData) {
-    state5.querySelector('.health-gbp-score').textContent     = auditData.gbp_score ?? '--';
-    state5.querySelector('.health-website-score').textContent = auditData.website_score ?? '--';
-    state5.querySelector('.health-mobile-score').textContent  = auditData.pagespeed_mobile ?? '--';
-    state5.querySelector('.health-photo-count').textContent   = auditData.photo_count ?? '--';
-    state5.querySelector('.health-review-count').textContent  = auditData.review_count ?? '--';
-    state5.querySelector('.health-recency-score').textContent = auditData.review_recency_score ?? '--';
+    const fields = [
+        { selector: '.health-gbp-score',      value: auditData.gbp_score,            thresholds: { green: 75, yellow: 50 } },
+        { selector: '.health-website-score',   value: auditData.website_score,        thresholds: { green: 75, yellow: 50 } },
+        { selector: '.health-mobile-score',    value: auditData.pagespeed_mobile,     thresholds: { green: 75, yellow: 50 } },
+        { selector: '.health-photo-count',     value: auditData.photo_count,          thresholds: { green: 10, yellow: 5  } },
+        { selector: '.health-review-count',    value: auditData.review_count,         thresholds: { green: 20, yellow: 10 } },
+        { selector: '.health-recency-score',   value: auditData.review_recency_score, thresholds: { green: 75, yellow: 50 } },
+    ];
+
+    fields.forEach(({ selector, value, thresholds }) => {
+        const el = state5.querySelector(selector);
+        if (!el) return;
+        el.textContent = value ?? '--';
+        el.style.color = value !== null && value !== undefined
+            ? healthColor(value, thresholds)
+            : '';
+    });
 }
 
 function renderIssueTracker(issues) {

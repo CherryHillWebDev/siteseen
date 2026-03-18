@@ -2,6 +2,7 @@
     --theme-blue: #142B3D;
     --theme-red: #FF5536;
     --off-white: #FAFDFF;
+    --dash-bg: #eff2f3;
     --light-gray: #F6F6F6;
     --font-color: #171E25;
     --font-lg: #5c5c5c;
@@ -115,6 +116,15 @@ p {
 
 .med-scale {
     font-size: clamp(1rem, 0.912rem + 0.2817vw, 1.25rem) !important;
+}
+
+.dash-title-font {
+    font-size: 16px;
+    letter-spacing: 0px;
+}
+
+.dash-subtext-font {
+    font-size: clamp(0.75rem, 0.706rem + 0.1408vw, 0.875rem);
 }
 
 .semi-bold {
