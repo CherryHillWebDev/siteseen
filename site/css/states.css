@@ -319,7 +319,6 @@
 .dashboard-top {
     grid-template-columns: 1fr 1fr;
     gap:1rem;
-    margin-top: 2rem;
     min-height: 350px;
 }
 
@@ -707,6 +706,10 @@
         width: 80%;
     }
 
+    #state-5-dashboard {
+        padding-top: 0;
+    }
+
     .dashboard {
         padding-bottom: 0;
         padding-top: 0;
@@ -714,6 +717,7 @@
 
     .dashboard-top {
         grid-template-columns: 1fr;
+        margin-top: 1rem
     }
 
     .issues-chart {
