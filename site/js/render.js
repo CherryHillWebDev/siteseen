@@ -27,6 +27,7 @@ export function renderState5(dashboardData) {
     renderHealthGrid(dashboardData);
     renderIssueTracker(dashboardData.issues);
     renderRescanButton(dashboardData.updated_at ?? dashboardData.created_at);
+    renderKeywordSection(dashboardData);
 }
 
 function renderDashboard(container, auditData) {
@@ -419,6 +420,15 @@ function buildDropdown(competitorKeywordData) {
     });
 }
 
+function renderKeywordSection(dashboardData) {
+    const signals = dashboardData.keyword_analysis?.crawl_signals ?? null;
+    const userKeywords = dashboardData.keyword_analysis?.keywords ?? null;
+    const competitorData = dashboardData.competitor_keyword_data ?? {};
+
+    renderSignals(signals);
+    renderKeywordList('user-keyword-list', userKeywords);
+    buildDropdown(competitorData);
+}
 
 async function handleSignOut() {
     await supabase.auth.signOut();
