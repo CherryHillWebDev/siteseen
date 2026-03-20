@@ -375,7 +375,7 @@ function buildDropdown(competitorKeywordData, userPlaceId) {
     const select = document.getElementById('competitor-select');
     select.innerHTML = '';
  
-    const valid = Object.entries(competitorData)
+    const valid = Object.entries(competitorKeywordData)
         .filter(([placeId, data]) => 
             placeId !== userPlaceId &&
             !data.crawl_failed && 
