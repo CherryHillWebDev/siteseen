@@ -348,25 +348,6 @@ export function renderHeader(user, supabase) {
 
 
 //Keyword table section
-function renderSignals(signals) {
-    const defs = [
-        { key: 'has_trade_in_title',    label: 'Trade in title'    },
-        { key: 'has_location_in_title', label: 'Location in title' },
-        { key: 'has_meta_description',  label: 'Meta description'  },
-        { key: 'has_schema',            label: 'Schema markup'     },
-        { key: 'has_multiple_pages',    label: 'Multiple pages'    },
-        { key: 'has_location_in_body',  label: 'Location in body'  },
-    ];
- 
-    document.getElementById('crawl-signals').innerHTML = defs.map(({ key, label }) => {
-        const val = signals[key];
-        return `<div class="signal-pill ${val ? 'pass' : 'fail'}">
-            <div class="signal-dot"></div>
-            ${label}
-        </div>`;
-    }).join('');
-}
-
 function renderKeywordList(containerId, keywords) {
     const el = document.getElementById(containerId);
  
@@ -421,11 +402,9 @@ function buildDropdown(competitorKeywordData) {
 }
 
 function renderKeywordSection(dashboardData) {
-    const signals = dashboardData.keyword_analysis?.crawl_signals ?? null;
     const userKeywords = dashboardData.keyword_analysis?.keywords ?? null;
     const competitorData = dashboardData.competitor_keyword_data ?? {};
 
-    renderSignals(signals);
     renderKeywordList('user-keyword-list', userKeywords);
     buildDropdown(competitorData);
 }

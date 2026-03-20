@@ -599,41 +599,6 @@
 }
 
 /* ─────────────────────────────────────────
-    CRAWL SIGNALS ROW
-───────────────────────────────────────── */
-.crawl-signals {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: var(--kw-section-gap);
-}
-
-.signal-pill {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    border: var(--border-std);
-    background: var(--off-white);
-    color: #555;
-}
-
-.signal-pill .signal-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.signal-pill.pass .signal-dot { background: #16a34a; }
-.signal-pill.fail .signal-dot { background: #dc2626; }
-.signal-pill.pass { color: #374151; }
-.signal-pill.fail { color: #9ca3af; }
-
-/* ─────────────────────────────────────────
     CHARTS GRID
 ───────────────────────────────────────── */
 .keyword-charts {
@@ -976,13 +941,9 @@
         height: auto;
         max-height: unset;
     }
-    
+
     .keyword-charts {
         grid-template-columns: 1fr;
-    }
-
-    .crawl-signals {
-        gap: 6px;
     }
 
     .kw-term {
