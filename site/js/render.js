@@ -371,7 +371,7 @@ function renderKeywordList(containerId, keywords) {
     `).join('');
 }
 
-function buildDropdown(competitorKeywordData) {
+function buildDropdown(competitorKeywordData, userPlaceId) {
     const select = document.getElementById('competitor-select');
     select.innerHTML = '';
  
@@ -410,7 +410,7 @@ function renderKeywordSection(dashboardData) {
     const competitorData = dashboardData.competitor_keyword_data ?? {};
 
     renderKeywordList('user-keyword-list', userKeywords);
-    buildDropdown(competitorData);
+    buildDropdown(competitorData, dashboardData.place_id);
 }
 
 async function handleSignOut() {
