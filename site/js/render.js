@@ -346,6 +346,80 @@ export function renderHeader(user, supabase) {
 }
 
 
+//Keyword table section
+function renderSignals(signals) {
+    const defs = [
+        { key: 'has_trade_in_title',    label: 'Trade in title'    },
+        { key: 'has_location_in_title', label: 'Location in title' },
+        { key: 'has_meta_description',  label: 'Meta description'  },
+        { key: 'has_schema',            label: 'Schema markup'     },
+        { key: 'has_multiple_pages',    label: 'Multiple pages'    },
+        { key: 'has_location_in_body',  label: 'Location in body'  },
+    ];
+ 
+    document.getElementById('crawl-signals').innerHTML = defs.map(({ key, label }) => {
+        const val = signals[key];
+        return `<div class="signal-pill ${val ? 'pass' : 'fail'}">
+            <div class="signal-dot"></div>
+            ${label}
+        </div>`;
+    }).join('');
+}
+
+function renderKeywordList(containerId, keywords) {
+    const el = document.getElementById(containerId);
+ 
+    if (!keywords || keywords.length === 0) {
+        el.innerHTML = '<p class="kw-empty">No keyword data available for this site.</p>';
+        return;
+    }
+ 
+    const sorted = [...keywords].sort((a, b) => b.count - a.count);
+    const max = Math.max(...sorted.map(k => k.count), 1);
+ 
+    el.innerHTML = sorted.map(({ term, type, count }) => `
+        <div class="keyword-row">
+            <span class="kw-term" title="${term}">${term}</span>
+            <div class="kw-bar-wrap">
+                <div class="kw-bar ${type}" style="width:${Math.round((count / max) * 100)}%"></div>
+            </div>
+            <span class="kw-count">${count}x</span>
+            <span class="kw-badge ${type}">${type}</span>
+        </div>
+    `).join('');
+}
+
+function buildDropdown(competitorKeywordData) {
+    const select = document.getElementById('competitor-select');
+    select.innerHTML = '';
+ 
+    const valid = Object.entries(competitorKeywordData)
+        .filter(([, data]) => !data.crawl_failed && data.keywords)
+        .sort((a, b) => a[1].rank - b[1].rank);
+ 
+    if (valid.length === 0) {
+        select.innerHTML = '<option>No data available</option>';
+        renderKeywordList('competitor-keyword-list', null);
+        return;
+    }
+ 
+    valid.forEach(([placeId, data]) => {
+        const opt = document.createElement('option');
+        opt.value = placeId;
+        opt.textContent = `#${data.rank} ${data.business_name}`;
+        select.appendChild(opt);
+    });
+ 
+    // Default to first (highest ranked valid competitor)
+    renderKeywordList('competitor-keyword-list', valid[0][1].keywords);
+ 
+    select.addEventListener('change', () => {
+        const selected = competitorKeywordData[select.value];
+        renderKeywordList('competitor-keyword-list', selected?.keywords ?? null);
+    });
+}
+
+
 async function handleSignOut() {
     await supabase.auth.signOut();
     localStorage.removeItem('siteseen_dashboard');

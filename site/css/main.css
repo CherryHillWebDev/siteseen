@@ -15,6 +15,16 @@
     --med-head-size: clamp(1.75rem, 1.3099rem + 1.4085vw, 3rem);
     --small-head-size: clamp(1.125rem, 0.993rem + 0.4225vw, 1.5rem);
     --body-font-size: clamp(0.875rem, 0.831rem + 0.1408vw, 1rem);
+    --kw-bar-service:   #378ADD;
+    --kw-bar-location:  #639922;
+    --kw-bar-other:     #B4B2A9;
+    --kw-bar-height:    18px;
+    --kw-bar-radius:    3px;
+    --kw-term-width:    180px;
+    --kw-count-width:   32px;
+    --kw-badge-radius:  8px;
+    --kw-row-gap:       6px;
+    --kw-section-gap:   1.5rem;
 }
 
 * { 

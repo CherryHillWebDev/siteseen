@@ -580,6 +580,208 @@
     border: none;
 }
 
+/* ─────────────────────────────────────────
+    KEYWORD SECTION WRAPPER
+───────────────────────────────────────── */
+.keyword-section {
+    background: var(--off-white);
+    border: var(--border-std);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.keyword-section-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--theme-blue);
+    margin-bottom: 1rem;
+}
+
+/* ─────────────────────────────────────────
+    CRAWL SIGNALS ROW
+───────────────────────────────────────── */
+.crawl-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--kw-section-gap);
+}
+
+.signal-pill {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    border: var(--border-std);
+    background: var(--off-white);
+    color: #555;
+}
+
+.signal-pill .signal-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.signal-pill.pass .signal-dot { background: #16a34a; }
+.signal-pill.fail .signal-dot { background: #dc2626; }
+.signal-pill.pass { color: #374151; }
+.signal-pill.fail { color: #9ca3af; }
+
+/* ─────────────────────────────────────────
+    CHARTS GRID
+───────────────────────────────────────── */
+.keyword-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.keyword-chart-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.keyword-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 28px;
+}
+
+.keyword-chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--theme-blue);
+}
+
+/* ─────────────────────────────────────────
+    COMPETITOR DROPDOWN
+───────────────────────────────────────── */
+.competitor-select {
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    border: var(--border-std);
+    border-radius: 6px;
+    outline: none;
+    background: var(--off-white);
+    color: var(--theme-blue);
+    cursor: pointer;
+    max-width: 220px;
+}
+
+.competitor-select:focus {
+    border-color: var(--theme-red);
+    box-shadow: 0 0 0 2px #ff553620;
+}
+
+/* ─────────────────────────────────────────
+    KEYWORD ROWS
+───────────────────────────────────────── */
+.keyword-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--kw-row-gap);
+}
+
+.keyword-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kw-term {
+    font-size: 12px;
+    color: #374151;
+    width: var(--kw-term-width);
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kw-bar-wrap {
+    flex: 1;
+    height: var(--kw-bar-height);
+    background: #f3f4f6;
+    border-radius: var(--kw-bar-radius);
+    overflow: hidden;
+}
+
+.kw-bar {
+    height: 100%;
+    border-radius: var(--kw-bar-radius);
+    transition: width 0.5s ease;
+}
+
+.kw-bar.service  { background: var(--kw-bar-service); }
+.kw-bar.location { background: var(--kw-bar-location); }
+.kw-bar.other    { background: var(--kw-bar-other); }
+
+.kw-count {
+    font-size: 11px;
+    color: #6b7280;
+    width: var(--kw-count-width);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.kw-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: var(--kw-badge-radius);
+    flex-shrink: 0;
+    font-weight: 600;
+    width: 52px;
+    text-align: center;
+}
+
+.kw-badge.service  { background: #dbeafe; color: #1e40af; }
+.kw-badge.location { background: #dcfce7; color: #166534; }
+.kw-badge.other    { background: #f3f4f6; color: #6b7280; }
+
+/* ─────────────────────────────────────────
+    LEGEND
+───────────────────────────────────────── */
+.kw-legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 4px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────
+    EMPTY / FAILED STATES
+───────────────────────────────────────── */
+.kw-empty {
+    font-size: 12px;
+    color: #9ca3af;
+    font-style: italic;
+    padding: 1rem 0;
+}
+
 .issue-track-section {
     min-height: 500px;
 }
@@ -773,5 +975,21 @@
         grid-template-rows: repeat(auto-fill);
         height: auto;
         max-height: unset;
+    }
+    
+    .keyword-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .crawl-signals {
+        gap: 6px;
+    }
+
+    .kw-term {
+        width: 130px;
+    }
+
+    .kw-badge {
+        display: none;
     }
 }
