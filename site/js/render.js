@@ -375,8 +375,12 @@ function buildDropdown(competitorKeywordData) {
     const select = document.getElementById('competitor-select');
     select.innerHTML = '';
  
-    const valid = Object.entries(competitorKeywordData)
-        .filter(([, data]) => !data.crawl_failed && data.keywords)
+    const valid = Object.entries(competitorData)
+        .filter(([placeId, data]) => 
+            placeId !== userPlaceId &&
+            !data.crawl_failed && 
+            data.keywords
+        )
         .sort((a, b) => a[1].rank - b[1].rank);
  
     if (valid.length === 0) {
@@ -388,7 +392,7 @@ function buildDropdown(competitorKeywordData) {
     valid.forEach(([placeId, data]) => {
         const opt = document.createElement('option');
         opt.value = placeId;
-        opt.textContent = `#${data.rank} ${data.business_name}`;
+        opt.textContent = `${data.business_name}`;
         select.appendChild(opt);
     });
  

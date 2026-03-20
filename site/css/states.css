@@ -586,7 +586,7 @@
 .keyword-section {
     background: var(--off-white);
     border: var(--border-std);
-    border-radius: 8px;
+    border-radius: 25px;
     padding: 1.25rem;
     margin-bottom: 1.25rem;
 }
