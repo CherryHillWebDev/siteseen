@@ -10,7 +10,7 @@
     --border-std: solid 1px #d4d4d4;
     --theme-font: "Inter";
     --body-font: "Inter";
-    --hero-head-size: clamp(4rem, 3.2958rem + 2.2535vw, 6rem);;
+    --hero-head-size: clamp(3rem, 1.9437rem + 3.3803vw, 6rem);
     --heading-font-size: clamp(2.25rem, 1.6338rem + 1.9718vw, 4rem);
     --med-head-size: clamp(1.75rem, 1.3099rem + 1.4085vw, 3rem);
     --small-head-size: clamp(1.125rem, 0.993rem + 0.4225vw, 1.5rem);
@@ -220,6 +220,14 @@ p {
 
 .cta-btn.btn-red::after {
     background-color: var(--theme-blue);
+}
+
+.cta-btn.btn-red.btn-white-bg:hover {
+    color: var(--theme-blue);
+}
+
+.cta-btn.btn-red.btn-white-bg::after {
+    background-color: var(--off-white);
 }
 
 /*--------------------------*/

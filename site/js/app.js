@@ -30,7 +30,7 @@ async function routeUser() {
     const dashboardData = await fetchDashboard();
 
     if (!dashboardData.success || !dashboardData.dashboard) {
-        renderHeader(null, supabase)
+        renderHeader(session.user, supabase);
         setState(STATES[0]);
         hidePageLoader();
         return;
