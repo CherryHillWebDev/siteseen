@@ -1,3 +1,6 @@
+//render.js
+let _dashboardData = null;
+
 export function renderState2(businesses) {
     const container = document.querySelector('.search-results-container');
     
@@ -23,6 +26,7 @@ export function renderState4(auditData) {
 }
 
 export function renderState5(dashboardData) {
+    _dashboardData = dashboardData;
     renderDashboard(state5, dashboardData);
     renderHealthGrid(dashboardData);
     renderIssueTracker(dashboardData.issues);
@@ -237,6 +241,13 @@ function renderHealthGrid(auditData) {
     fields.forEach(({ selector, value, thresholds }) => {
         const el = state5.querySelector(selector);
         if (!el) return;
+
+        if(selector === '.health-photo-count' && value >= 10) {
+            el.textContent = `+${value}`
+            el.style.color = healthColor(value, thresholds);
+            return;
+        }
+
         el.textContent = value ?? '--';
         el.style.color = value !== null && value !== undefined
             ? healthColor(value, thresholds)
@@ -244,6 +255,119 @@ function renderHealthGrid(auditData) {
     });
 }
 
+const MODAL_CONFIG = {
+    'gbp-score': {
+        title: 'Google Business Profile Score',
+        source: 'gbp',
+        rows: [
+            { key: 'photos',       label: 'Photos',               max: 15, description: 'Having at least 10 photos signals to Google that your profile is active and well-maintained. Photos also increase click-through from potential customers.' },
+            { key: 'review_count', label: 'Review Count',          max: 35, description: 'Reviews are the strongest local ranking signal. The more reviews you have, the more Google trusts your business relative to competitors.' },
+            { key: 'rating',       label: 'Average Rating',        max: 25, description: 'A rating of 4.5+ strongly influences both rankings and customer decisions. Below 3.5, your rating actively suppresses your visibility.' },
+            { key: 'hours',        label: 'Business Hours Listed', max: 9,  description: 'Listed hours complete your profile and help customers know when to call. Missing hours is a common and easy fix.' },
+            { key: 'phone',        label: 'Phone Number Listed',   max: 8,  description: 'A phone number is a basic trust signal and a completeness factor for your Google Business Profile.' },
+            { key: 'website',      label: 'Website Listed',        max: 8,  description: 'Linking your website signals legitimacy and helps Google understand your business. It also drives traffic to your site.' },
+        ]
+    },
+    'website-score': {
+        title: 'Website Score',
+        source: 'website',
+        rows: [
+            { key: 'mobile',  label: 'Mobile PageSpeed',  max: 100, description: 'Mobile performance is weighted at 60% because most local searches happen on phones. A slow mobile site costs you leads before you ever speak to a customer.' },
+            { key: 'desktop', label: 'Desktop PageSpeed', max: 100, description: 'Desktop performance accounts for the remaining 40% of your website score. Slow desktop sites hurt both SEO and the experience of customers who find you on a computer.' },
+        ]
+    },
+    'mobile-score': {
+        title: 'Mobile Performance Breakdown',
+        source: 'mobile',
+        rows: [
+            { key: 'lcp',          label: 'Largest Contentful Paint', max: 100, description: 'How fast the main content of your page loads. Slow LCP means visitors wait too long and leave before seeing anything.' },
+            { key: 'tbt',          label: 'Total Blocking Time',      max: 100, description: 'How long your page is unresponsive to taps and clicks after loading. High TBT makes your site feel broken or frozen.' },
+            { key: 'cls',          label: 'Cumulative Layout Shift',  max: 100, description: 'How much your page jumps around while loading. Elements shifting causes misclicks and a poor first impression.' },
+            { key: 'fcp',          label: 'First Contentful Paint',   max: 100, description: 'How quickly the first element appears on screen. A fast FCP makes your site feel responsive even before everything loads.' },
+            { key: 'speedIndex',   label: 'Speed Index',              max: 100, description: 'How quickly your page visually fills in from top to bottom. A low speed index means a faster-feeling overall page load.' },
+            { key: 'seo',          label: 'SEO',                      max: 100, description: 'How well your page is structured for search engines — meta tags, headings, and mobile-friendliness all factor in here.' },
+            { key: 'bestPractices',label: 'Best Practices',           max: 100, description: 'Security standards, HTTPS, and modern web requirements. Poor scores here can trigger browser warnings that scare customers away.' },
+            { key: 'accessibility',label: 'Accessibility',            max: 100, description: 'How usable your site is for all visitors. Google treats this as a quality signal and it affects your overall ranking.' },
+        ]
+    },
+    'photos': {
+        title: 'Number of Photos',
+        source: 'gbp',
+        rows: [
+            { key: 'photos', label: 'Photo Count', max: 15, description: "Google's API caps visible photos at 10, but having 10 or more shows your profile is active and engaged. Businesses with more photos consistently get more views and direction requests." },
+        ]
+    },
+    'total-reviews': {
+        title: 'Total Reviews',
+        source: 'gbp',
+        rows: [
+            { key: 'review_count', label: 'Review Count', max: 35, description: '200+ reviews puts you in the top scoring tier. Reviews are the single strongest local ranking signal — more than photos, hours, or any other profile factor.' },
+        ]
+    },
+    'recent-reviews': {
+        title: 'Review Recency Score',
+        source: 'recency',
+        rows: [
+            { key: 'within_90_days', label: 'Last 90 Days',       max: null, description: 'Each review from the last 90 days contributes 100 points to your recency average. Fresh reviews signal to Google that your business is active and trusted right now.' },
+            { key: 'within_1_year',  label: '90 Days – 1 Year',   max: null, description: 'Reviews between 90 days and 1 year old score 60 points each. Still valuable, but Google gives more weight to recency.' },
+            { key: 'within_2_years', label: '1–2 Years Old',       max: null, description: 'Reviews between 1 and 2 years old score 20 points each. These are getting stale — a steady stream of new reviews dilutes their weight.' },
+            { key: 'older',          label: 'Older than 2 Years',  max: null, description: 'Reviews older than 2 years contribute 0 to your recency score. They still count toward your total review count, but have no recency value.' },
+        ]
+    }
+};
+
+export function renderModalContent(category) {
+    const config  = MODAL_CONFIG[category];
+    if (!config || !_dashboardData) return;
+
+    const scoring     = _dashboardData.scoring_details;
+    const modal       = state5.querySelector('.modal');
+    const modalTitle  = state5.querySelector('#modal-title');
+    const modalHolder = state5.querySelector('.modal-details-holder');
+
+    modalTitle.textContent = config.title;
+
+    modalHolder.innerHTML = config.rows.map(row => {
+        let displayScore;
+
+        if (config.source === 'gbp') {
+            const val = scoring?.gbp?.breakdown?.[row.key]?.score ?? '--';
+            displayScore = val !== '--' ? `${val}/${row.max}` : '--';
+
+        } else if (config.source === 'website') {
+            const val = scoring?.website?.breakdown?.[row.key];
+            displayScore = val !== undefined ? `${Math.round(val)}/100` : '--';
+
+        } else if (config.source === 'mobile') {
+            const val = scoring?.mobile?.breakdown?.[row.key];
+            displayScore = val !== undefined ? `${Math.round(val)}/100` : '--';
+
+        } else if (config.source === 'recency') {
+            const val = scoring?.recency?.breakdown?.[row.key];
+            displayScore = val !== undefined ? `${val} reviews` : '--';
+        }
+
+        return `
+            <div class="modal-details-row">
+                <p class="modal-criteria-name centered lg-font bold">${row.label}</p>
+                <p class="modal-score centered bold">${displayScore}</p>
+                <p class="modal-details-desc lg-font">${row.description}</p>
+            </div>
+        `;
+    }).join('');
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+export function closeModal() {
+    const modal = state5.querySelector('.modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+
+//Issue tracker rendering
 function renderIssueTracker(issues) {
     const tracker = state5.querySelector('.issue-tracker');
 

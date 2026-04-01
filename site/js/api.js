@@ -1,3 +1,5 @@
+//api.js
+
 import { WORKER_URL } from './config.js'
 import { supabase } from './supabase.js';
 

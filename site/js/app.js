@@ -1,5 +1,7 @@
+//app.js
+
 import { searchBusiness, detailedSearch, fetchDashboard, rescanBusiness } from './api.js';
-import { renderState2, renderState4, renderState5, handleSearchSelection, renderHeader  } from './render.js';
+import { renderState2, renderState4, renderState5, handleSearchSelection, renderHeader, renderModalContent, closeModal  } from './render.js';
 import { supabase } from './supabase.js'
 
 const STATES = [
@@ -242,6 +244,12 @@ async function reRunAudit() {
     document.getElementById('btn-rescan').disabled = true;
     const { business, trade } = await reSearchInit()
 
+    if (!business || !trade) { // guard added
+        alert('Could not load your business data. Please refresh and try again.');
+        document.getElementById('btn-rescan').disabled = false;
+        return;
+    }
+
     setState(STATES[2]);
     startLoadingCycle();
 
@@ -274,6 +282,8 @@ async function reSearchInit() {
     }
 
     const data = await fetchDashboard();
+    if (!data.success || !data.dashboard) return null;
+
     return {
         business: { id: data.dashboard.place_id },
         trade: data.dashboard.confirmed_trade
@@ -312,4 +322,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('btn-rescan').addEventListener('click', () => reRunAudit());
 
+    document.querySelectorAll('.health-details-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = e.currentTarget.dataset.category;
+            renderModalContent(category);
+        });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', () => {
+        closeModal();
+    });
 })

@@ -884,6 +884,87 @@
     margin: 1rem auto;
 }
 
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background: #000000b4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: none;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-holder {
+    max-width: 1250px;
+    width: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--off-white);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    margin-bottom: 2rem;
+}
+
+
+#modal-close {
+    border-radius: 5px;
+    border: var(--border-std);
+    padding: 0.5rem;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.modal-details {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modal-details-top {
+    background-color: #f1f1f1;
+    display: grid;
+    grid-template-columns: 100px 100px;
+    gap: 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;;
+    text-align: center;
+}
+
+.modal-details-holder {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.modal-details-row {
+    display: grid;
+    grid-template-columns: 100px 100px 1fr;
+    padding: 2rem;
+    gap: 3rem;
+    border-bottom: solid 2px #e4e4e4;
+    align-items: center;
+    overflow-y: none;
+}
+
 @media (max-width: 768px) {
     .landing-container {
         padding-top: 2rem;
@@ -990,5 +1071,31 @@
 
     .kw-badge {
         display: none;
+    }
+
+    .modal-details-top {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .modal-details-row {
+        grid-template-columns: unset;
+        grid-template-areas: 
+        "m-title-1 m-title-2"
+        "body body"
+        ;
+    }
+
+    .modal-criteria-name {
+        grid-area: m-title-1;
+    }
+
+    .modal-score {
+        grid-area: m-title-2
+    }
+
+    .modal-details-desc {
+        grid-area: body;
     }
 }
