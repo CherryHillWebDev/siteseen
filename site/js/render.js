@@ -331,8 +331,26 @@ export function renderModalContent(category) {
         let displayScore;
 
         if (config.source === 'gbp') {
-            const val = scoring?.gbp?.breakdown?.[row.key]?.score ?? '--';
-            displayScore = val !== '--' ? `${val}/${row.max}` : '--';
+            
+            if (row.key === 'review_count') {
+                const val = _dashboardData.review_count ?? '--'
+                displayScore = val !== '--' ? `${val}` : 'N/A'
+            } else if (row.key === 'rating') {
+                const val = _dashboardData.average_rating ?? '--'
+                displayScore = val !== '--' ? `${val}` : 'N/A'
+            } else if (row.key === 'photos') {
+                const val = _dashboardData.photo_count ?? '--'
+                displayScore = val !== '--' ? `${val}` : 'N/A'
+            } else {
+                const val = scoring?.gbp?.breakdown?.[row.key];
+                if (val === undefined || val === null) {
+                    displayScore = '<span class="modal-score-dash">--</span>';
+                } else {
+                    displayScore = val !== 0 
+                        ? '<span class="modal-score-bool pass">✓</span>'
+                        : '<span class="modal-score-bool fail">✗</span>';
+                }
+            }
 
         } else if (config.source === 'website') {
             const val = scoring?.website?.breakdown?.[row.key];
@@ -345,7 +363,7 @@ export function renderModalContent(category) {
         } else if (config.source === 'recency') {
             const val = scoring?.recency?.breakdown?.[row.key];
             displayScore = val !== undefined ? `${val} reviews` : '--';
-        }
+        } 
 
         return `
             <div class="modal-details-row">
@@ -357,13 +375,13 @@ export function renderModalContent(category) {
     }).join('');
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 }
 
 export function closeModal() {
     const modal = state5.querySelector('.modal');
     modal.classList.remove('active');
-    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
 }
 
 
