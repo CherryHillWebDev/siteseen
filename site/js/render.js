@@ -554,10 +554,3 @@ function renderKeywordSection(dashboardData) {
     renderKeywordList('user-keyword-list', userKeywords);
     buildDropdown(competitorData, dashboardData.place_id);
 }
-
-async function handleSignOut() {
-    await supabase.auth.signOut();
-    localStorage.removeItem('siteseen_dashboard');
-    localStorage.removeItem('session_token');
-    window.location.reload();
-}
