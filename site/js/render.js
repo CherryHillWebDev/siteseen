@@ -554,3 +554,127 @@ function renderKeywordSection(dashboardData) {
     renderKeywordList('user-keyword-list', userKeywords);
     buildDropdown(competitorData, dashboardData.place_id);
 }
+
+//state 1 keyword bar fill function
+export function initKeywordBarAnimation() {
+  // Only run once per page load
+  if (window.__keywordBarAnimated) return;
+  window.__keywordBarAnimated = true;
+
+  const section = document.querySelector('.keyword-section.v-lp');
+  if (!section) return;
+
+  // Get left & right panels
+  const leftPanel = section.querySelector('.keyword-chart-panel:first-child');
+  const rightPanel = section.querySelector('.keyword-chart-panel:last-child');
+  if (!leftPanel || !rightPanel) return;
+
+  const leftRows = Array.from(leftPanel.querySelectorAll('.keyword-row'));
+  const rightRows = Array.from(rightPanel.querySelectorAll('.keyword-row'));
+
+  const leftItems = [];
+  const rightItems = [];
+
+  // Helper: store target width, set bar to 0% without transition
+  const prepareBar = (bar) => {
+    const targetWidth = bar.style.width;
+    if (!targetWidth) return null;
+    bar.dataset.targetWidth = targetWidth;
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    void bar.offsetHeight; // force reflow
+    bar.style.transition = ''; // restore transition
+    return { bar, targetWidth };
+  };
+
+  leftRows.forEach(row => {
+    const bar = row.querySelector('.kw-bar');
+    if (bar) {
+      const item = prepareBar(bar);
+      if (item) leftItems.push(item);
+    }
+  });
+  rightRows.forEach(row => {
+    const bar = row.querySelector('.kw-bar');
+    if (bar) {
+      const item = prepareBar(bar);
+      if (item) rightItems.push(item);
+    }
+  });
+
+  if (leftItems.length === 0 && rightItems.length === 0) return;
+
+  // Animate row by row (both panels in parallel)
+  const animateBars = () => {
+    const maxRows = Math.max(leftItems.length, rightItems.length);
+    const staggerDelay = 100; // ms between rows
+    for (let i = 0; i < maxRows; i++) {
+      setTimeout(() => {
+        if (leftItems[i]) leftItems[i].bar.style.width = leftItems[i].targetWidth;
+        if (rightItems[i]) rightItems[i].bar.style.width = rightItems[i].targetWidth;
+      }, i * staggerDelay);
+    }
+  };
+
+  // Wait until section is 70% visible
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateBars();
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.7 }
+  );
+
+  observer.observe(section);
+}
+
+export function aboutItemHandler(data) {
+    const ABOUT_ITEM_CONFIG = [
+        {
+            id: "find-issues",
+            src: "/img/state-1/about/about-img1.png",
+            title: "Spot what’s holding you back",
+            desc: "We scan your website and Google Business Profile for common SEO problems—missing keywords, incomplete info, or broken sections that confuse Google. No guesswork, just a clear list of what to fix."
+        },
+        {
+            id: "fix-problems",
+            src: "/img/state-1/about/about-img2.png",
+            title: "Turn issues into improvements",
+            desc: "Once you know what’s wrong, you’ll see simple, step‑by‑step guidance to fix each issue. No technical skills needed—just follow the checklist and watch your visibility grow."
+        },
+        {
+            id: "track-comp",
+            src: "/img/state-1/about/about-img3.png",
+            title: "See what’s working for them",
+            desc: "We pull the keywords your top competitors are ranking for, then compare them to yours. You’ll instantly spot opportunities they’re using—and you’re missing—so you can close the gap."
+        }
+    ]
+
+    const section = document.getElementById('state-1-search');
+    const itemPicture = document.getElementById('about-item-img');
+    const itemTitle = document.getElementById('about-item-title');
+    const itemDesc = document.getElementById('about-item-desc');
+    const itemOptions = section.querySelectorAll('.about-item-option');
+
+    const itemId = data
+
+    const configData = ABOUT_ITEM_CONFIG.find(i => i.id === itemId);
+    if (!configData) return; // exit if no matching config
+
+    itemPicture.src = configData.src;
+    itemTitle.textContent = configData.title;
+    itemDesc.textContent = configData.desc;
+
+    itemOptions.forEach(option => {
+        if (option.dataset.item === itemId) {
+            option.classList.add('active');
+            return
+        }
+        option.classList.remove('active');
+    })
+
+}

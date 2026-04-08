@@ -11,17 +11,42 @@
 /*--------------------------*/
 /*STATE 1*/
 /*--------------------------*/
+#state-1-search {
+  background-color: var(--off-white);
+  background-image: 
+    radial-gradient(circle at 50% 10%, transparent 20%, var(--off-white) 40%),
+    radial-gradient(#ddd1d1 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, 0 0;
+}
+
 .landing-container {
     padding-top: 7rem;
 }
 
 .landing-container h1 {
-    max-width: 1000px;
+    max-width: 1100px;
+    line-height: 1.2;
 }
 
 .landing-p {
     max-width: 615px;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.lp-highlight {
+    background-color: var(--theme-red);
+    color: var(--off-white);
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+
+.highlight2 {
+    background-color: #5D37FF;
+    color: var(--off-white);
+    border-radius: 10px;
+    text-wrap: nowrap;
 }
 
 .form-holder {
@@ -67,23 +92,23 @@
 
 .carousel {
     position: relative;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
-    margin-top: 3rem;
+    margin: 3rem auto 0;
 
     /* Blur mask on left and right edges */
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 12%,
-      black 88%,
+      black 3%,
+      black 97%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to right,
       transparent 0%,
-      black 12%,
-      black 88%,
+      black 3%,
+      black 97%,
       transparent 100%
     );
   }
@@ -132,33 +157,86 @@
     100% { transform: translateX(-50%); }
   }
 
-.about-container {
-    background-color: var(--theme-blue);
-    padding: 1rem;
+.about-siteseen {
+    background: linear-gradient(145deg, #142B3D 0%, #09141d 100%);
+    padding: 2.5rem 1rem;
 }
 
-.about-content-holder {
-    text-align: center;
+.about-text-1 {
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto 2rem;
+}
+
+.about-text-1 > div:first-child {
+    min-width: 300px;
+    max-width: 450px;
+}
+
+.about-text-1 > div:last-child {
+    max-width: 700px;
+}
+
+.keyword-section.v-lp {
+    max-width: 1100px;
+    margin: 1rem auto;
+    text-align: left;
+}
+
+.about-items-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.about-item-option {
+    font-size: clamp(1.75rem, 1.3099rem + 1.4085vw, 3rem);
+    color: var(--font-lg);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin: 1rem 0;
+}
+
+.about-item-option:hover {
+    color: var(--off-white);
+}
+
+.about-item-option.active {
+    color: var(--off-white);
+}
+
+.about-item-img {
+    background: linear-gradient(45deg, #0e0e0e, #1b1b1b);
+    border: solid 1px #363636;
+    padding: 1rem;
+    border-radius: 15px;
+    max-width: 500px;
+}
+
+.about-pt2 {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1500px;
 }
 
 .about-us-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #ff9180, #ff3b18);
 }
 
-.about-grid-item {
-    background-color: var(--theme-red);
-    padding: 1rem;
+.abt-grid-left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 10px;
-    gap: 1rem;
 }
 
-.about-grid-img {
-    border-radius: 7px;
-}
+
 
 /*--------------------------*/
 /*STATE 2*/
@@ -966,6 +1044,13 @@
 }
 
 @media (max-width: 768px) {
+    #state-1-search {
+        background-image: 
+            radial-gradient(circle at 50% 10%, transparent 0%, var(--off-white) 25%),
+            radial-gradient(#ddd1d1 1px, transparent 1px);
+        background-size: 100% 100%, 15px 15px;
+    }
+
     .landing-container {
         padding-top: 2rem;
     }
@@ -976,6 +1061,30 @@
 
     .landing-p {
         margin-top: 0;
+    }
+
+    .carousel {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin: 3rem auto 0;
+
+        /* Blur mask on left and right edges */
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .about-text-1 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .about-items-holder {
+        grid-template-columns: 1fr;
+    }
+
+    .about-item-img {
+        margin: auto;
     }
 
     .about-us-grid {

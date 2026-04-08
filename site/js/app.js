@@ -1,7 +1,7 @@
 //app.js
 
 import { searchBusiness, detailedSearch, fetchDashboard, rescanBusiness } from './api.js';
-import { renderState2, renderState4, renderState5, handleSearchSelection, renderHeader, renderModalContent, closeModal  } from './render.js';
+import { renderState2, renderState4, renderState5, handleSearchSelection, renderHeader, renderModalContent, closeModal, initKeywordBarAnimation, aboutItemHandler  } from './render.js';
 import { supabase } from './supabase.js'
 
 const STATES = [
@@ -294,6 +294,7 @@ async function reSearchInit() {
 // Wiring up all functions and eventListeners to the DOMContentLoaded eventListener
 document.addEventListener('DOMContentLoaded', () => {
     routeUser();
+    initKeywordBarAnimation();
 
     const hamburger = document.getElementById('hamburger');
     const headerRight = document.getElementById('header-right');
@@ -310,9 +311,12 @@ document.addEventListener('DOMContentLoaded', () => {
             headerRight.classList.remove('open');
         }
     });
+    
 
+    //Search handle
     document.getElementById('business-search-form').addEventListener('submit', handleSearch);
 
+    //Retry business search button
     document.querySelector('.state-2-retry-btn').addEventListener('click', () => {
         _selectedBusiness = null;
         setState('state-1-search');
@@ -332,5 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('modal-close').addEventListener('click', () => {
         closeModal();
+    });
+
+    document.querySelectorAll('.about-item-option').forEach(option => {
+        option.addEventListener('click', (e) => {
+            const itemId = e.currentTarget.dataset.item;
+            aboutItemHandler(itemId);
+        });
     });
 })
