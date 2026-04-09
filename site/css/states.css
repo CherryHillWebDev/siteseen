@@ -423,7 +423,7 @@
 }
 
 .dashboard-top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap:1rem;
     min-height: 350px;
 }
@@ -509,13 +509,13 @@
 }
 
 .dashboard-bottom-panel {
-    grid-template-columns: 2fr 1fr;
-    gap:1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     min-height: 250px;
 }
 
 .dash-analysis-holder {
-    background-color: var(--off-white);
+    background-color: #fff;
     padding: 1rem;
     border-radius: 25px;
     height: 100%;
@@ -541,6 +541,10 @@
 
 .med-prio.two-issues {
     padding-left: 0.5rem;
+}
+
+.table-holder {
+    width: 100%;
 }
 
 .competitor-table {
@@ -1014,7 +1018,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-
+    padding-bottom: 2rem;
 }
 
 .modal-details-top {
@@ -1180,6 +1184,10 @@
 
     .kw-badge {
         display: none;
+    }
+
+    .health-item {
+        min-height: 150px;
     }
 
     .modal-details-top {

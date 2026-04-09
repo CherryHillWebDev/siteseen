@@ -2,11 +2,12 @@
     --theme-blue: #142B3D;
     --theme-red: #FF5536;
     --off-white: #FAFDFF;
-    --dash-bg: #eff2f3;
+    --dash-bg: #F8F9FA;
     --light-gray: #F6F6F6;
     --font-color: #171E25;
     --font-lg: #5c5c5c;
     --font-lg-xtra: #a5a5a5;
+    --font-mg: #464646;
     --input-bg-color: #F3F3F3;
     --border-std: solid 1px #d4d4d4;
     --theme-font: "Inter";
@@ -178,6 +179,10 @@ p {
 
 .lg-xtra-font {
     color: var(--font-lg-xtra);
+}
+
+.mg-font {
+    color: var(--font-mg);
 }
 
 .dg-font {
@@ -421,7 +426,6 @@ nav {
 /*--------------------------*/
 
 footer {
-    margin-top: 2rem;
     padding-top: 1rem;
     border-top: solid 1px var(--font-color);
 }
